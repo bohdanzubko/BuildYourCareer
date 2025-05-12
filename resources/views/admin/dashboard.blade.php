@@ -40,6 +40,36 @@
             <h2 class="text-lg font-bold">Settings</h2>
             <p class="mt-2 text-sm">Manage platform settings.</p>
         </a>
+
+        <a href="{{ route('skills.index') }}" class="bg-pink-500 hover:bg-pink-600 text-white p-6 rounded-lg shadow-md text-center">
+            <h2 class="text-lg font-bold">Skills</h2>
+            <p class="mt-2 text-sm">Manage skill tags assigned to users and jobs.</p>
+        </a>
+
+        <a href="{{ route('feedback.index') }}" class="bg-red-500 hover:bg-red-600 text-white p-6 rounded-lg shadow-md text-center">
+            <h2 class="text-lg font-bold">Feedback</h2>
+            <p class="mt-2 text-sm">Review and moderate user feedback.</p>
+        </a>
+
+        <a href="{{ route('job-confirmations.index') }}" class="bg-lime-500 hover:bg-lime-600 text-white p-6 rounded-lg shadow-md text-center">
+            <h2 class="text-lg font-bold">Job Confirmations</h2>
+            <p class="mt-2 text-sm">Track completed work and confirmations.</p>
+        </a>
+
+        <a href="{{ route('service-requests.index') }}" class="bg-orange-500 hover:bg-orange-600 text-white p-6 rounded-lg shadow-md text-center">
+            <h2 class="text-lg font-bold">Service Requests</h2>
+            <p class="mt-2 text-sm">Review service request submissions.</p>
+        </a>
+
+        <a href="{{ route('service-tags.index') }}" class="bg-fuchsia-500 hover:bg-fuchsia-600 text-white p-6 rounded-lg shadow-md text-center">
+            <h2 class="text-lg font-bold">Service Tags</h2>
+            <p class="mt-2 text-sm">Manage tags used to classify services.</p>
+        </a>
+
+        <a href="{{ route('user-profiles.index') }}" class="bg-cyan-500 hover:bg-cyan-600 text-white p-6 rounded-lg shadow-md text-center">
+            <h2 class="text-lg font-bold">User Profiles</h2>
+            <p class="mt-2 text-sm">Edit users' extended profile information.</p>
+        </a>
     </div>
 </div>
 @endsection
