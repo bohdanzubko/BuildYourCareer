@@ -17,6 +17,19 @@
         </div>
 
         <div class="mb-3">
+            <label for="category_id" class="form-label">Category</label>
+            <select class="form-control @error('category_id') is-invalid @enderror" id="category_id" name="category_id" required>
+                <option value="">Select Category</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}" {{ old('category_id', $service->category_id) == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                @endforeach
+            </select>
+            @error('category_id')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="mb-3">
             <label for="description" class="form-label">Description</label>
             <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="4" required>{{ old('description', $service->description) }}</textarea>
             @error('description')
