@@ -38,4 +38,11 @@ class Category extends Model
             'updated_at' => 'datetime',  // Automatically cast updated_at to a datetime
         ];
     }
+
+    public function jobs() {
+        return $this->hasMany(Job::class);
+    }
+    public function services() {
+        return $this->hasMany(Service::class);
+    }
 }

@@ -31,6 +31,11 @@ class Job extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class, 'job_skill', 'job_id', 'skill_id');
+    }
 
     /**
      * Get the employer that owns the job.
@@ -38,5 +43,10 @@ class Job extends Model
     public function employer()
     {
         return $this->belongsTo(User::class, 'employer_id');
+    }
+
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class);
     }
 }

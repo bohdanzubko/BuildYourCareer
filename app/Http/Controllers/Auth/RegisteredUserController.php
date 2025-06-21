@@ -50,7 +50,7 @@ class RegisteredUserController extends Controller
         if ($user->role == 'admin') {
             return redirect()->route('admin.dashboard'); // Перенаправлення для адмінів
         } else {
-            return redirect()->route('dashboard'); // Для інших користувачів
+            return redirect()->route('home'); // Для інших користувачів
         }
     }
 }

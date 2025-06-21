@@ -35,7 +35,7 @@ class FeedbackController extends Controller
 
         Feedback::create($request->all());
 
-        return redirect()->route('feedback.index')->with('success', 'Feedback created successfully');
+        return redirect()->back()->with('success', 'Feedback created successfully');
     }
 
     public function edit(Feedback $feedback)

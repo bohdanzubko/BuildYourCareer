@@ -101,4 +101,32 @@ class CategoryController extends Controller
         // Redirect back to the category list with a success message
         return redirect()->route('categories.index')->with('success', 'Category deleted successfully!');
     }
+
+    public function publicIndex(Request $request)
+    {
+        $categories = Category::all();
+        return view('categories.index', compact('categories'));
+    }
+
+    public function show(Request $request, Category $category)
+    {
+        $user = $request->user();
+        // За замовчуванням — якщо неавторизований, виводити все
+        $role = $user ? $user->role : null;
+
+        // Всі послуги та вакансії цієї категорії
+        $jobs = $category->jobs()->with('employer', 'skills')->get();
+        $services = $category->services()->with('skills', 'tags')->get();
+
+        if ($role === 'worker') {
+            // Всі послуги цієї категорії
+            return view('categories.show', compact('category', 'jobs'));
+        } elseif ($role === 'employer') {
+            // Всі послуги та вакансії цієї категорії
+            return view('categories.show', compact('category', 'services'));
+        } else {
+            // Для гостьового перегляду та робітників — вакансії
+            return view('categories.show', compact('category', 'jobs', 'services'));
+        }
+    }
 }
