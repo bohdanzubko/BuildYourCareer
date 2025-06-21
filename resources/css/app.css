@@ -1,4 +1,5 @@
 @import "crud_modules.css";
+@import "profile.css";
 
 @tailwind base;
 @tailwind components;

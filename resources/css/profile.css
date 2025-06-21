@@ -1,0 +1,207 @@
+/* Загальний контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Заголовок сторінки */
+.page-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Стилі для карток */
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #f8fafc;
+    color: #333;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.card-body {
+    background-color: #ffffff;
+    padding: 15px;
+}
+
+/* Стилі для таблиць */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.table th {
+    background-color: #f8fafc;
+    font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Кнопки для дій */
+.action-btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.action-btn:hover {
+    opacity: 0.9;
+}
+
+.action-btn:active {
+    transform: scale(0.98);
+}
+
+/* Кнопки */
+.btn-primary {
+    background-color: #4c8bf5;
+    color: white;
+}
+
+.btn-success {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.btn-warning {
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3b7ed0;
+}
+
+.btn-success:hover {
+    background-color: #4a954a;
+}
+
+.btn-warning:hover {
+    background-color: #e67e22;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+/* Стилі для форм */
+.form-container {
+    background-color: #f8fafc;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    border: 1px solid #e1e1e1;
+    margin-bottom: 15px;
+}
+
+.form-control:focus {
+    border-color: #4c8bf5;
+    outline: none;
+}
+
+/* Повідомлення про успіх та помилки */
+.success-message {
+    background-color: #2ecc71;
+    color: white;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.error-message {
+    background-color: #e74c3c;
+    color: white;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+/* Модальні вікна для підтвердження */
+.confirmation-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.confirmation-modal.show {
+    display: flex;
+}
+
+.confirmation-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 6px;
+    width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.confirmation-modal-button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.confirmation-modal-button.confirm {
+    background-color: #4c8bf5;
+    color: white;
+}
+
+.confirmation-modal-button.cancel {
+    background-color: #e74c3c;
+    color: white;
+}
