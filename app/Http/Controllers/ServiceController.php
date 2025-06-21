@@ -43,10 +43,11 @@ class ServiceController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
         ]);
 
         // Create the service in the database
-        Service::create($request->only(['name', 'description']));
+        Service::create($request->only(['name', 'description', 'price']));
 
         // Redirect back to the services list with a success message
         return redirect()->route('services.index')->with('success', 'Service added successfully!');
@@ -76,10 +77,11 @@ class ServiceController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
         ]);
 
         // Update the service
-        $service->update($request->only(['name', 'description']));
+        $service->update($request->only(['name', 'description', 'price']));
 
         // Redirect back to the services list with a success message
         return redirect()->route('services.index')->with('success', 'Service updated successfully!');

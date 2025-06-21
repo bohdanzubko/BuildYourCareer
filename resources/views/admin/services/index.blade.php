@@ -11,6 +11,7 @@
                 <th class="table-cell">#</th>
                 <th class="table-cell">Name</th>
                 <th class="table-cell">Description</th>
+                <th class="table-cell">Price</th>
                 <th class="table-cell">Actions</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                     <td class="table-cell">{{ $service->id }}</td>
                     <td class="table-cell">{{ $service->name }}</td>
                     <td class="table-cell">{{ $service->description }}</td>
+                    <td class="table-cell">{{ $service->price }}</td>
                     <td class="table-cell">
                         <a href="{{ route('services.edit', $service->id) }}" class="btn btn-warning action-btn">Edit</a>
                         <form action="{{ route('services.destroy', $service->id) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete();">

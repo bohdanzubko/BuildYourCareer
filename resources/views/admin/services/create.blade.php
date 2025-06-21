@@ -23,6 +23,11 @@
             @enderror
         </div>
 
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="number" step="0.01" name="price" class="form-control" value="{{ old('price') }}" required>
+        </div>
+
         <button type="submit" class="btn btn-success action-btn">Create</button>
         <a href="{{ route('services.index') }}" class="btn btn-danger action-btn">Cancel</a>
     </form>
