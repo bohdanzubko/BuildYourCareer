@@ -16,10 +16,8 @@ class JobRequestController extends Controller
      */
     public function index()
     {
-        // Retrieve all job offers
         $jobRequests = JobRequest::all();
 
-        // Return the job offers list view
         return view('admin.job_requests.index', compact('jobRequests'));
     }
 
@@ -30,7 +28,6 @@ class JobRequestController extends Controller
      */
     public function create()
     {
-        // Retrieve available jobs and users for the dropdowns
         $jobs = Job::all();
         $users = User::all();
 
@@ -45,18 +42,15 @@ class JobRequestController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate the incoming request
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'job_id' => 'required|exists:jobs,id',
             'status' => 'required|in:pending,viewed,approved,declined',
         ]);
 
-        // Create the job offer in the database
         JobRequest::create($request->only(['user_id', 'job_id', 'status']));
 
-        // Redirect back to the job offers list with a success message
-        return redirect()->route('job_requests.index')->with('success', 'Job offer created successfully!');
+        return redirect()->back()->with('success', 'Job offer created successfully!');
     }
 
     /**

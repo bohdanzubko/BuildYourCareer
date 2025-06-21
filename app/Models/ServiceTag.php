@@ -11,8 +11,8 @@ class ServiceTag extends Model
         'name',
     ];
 
-    public function services(): BelongsToMany
+    public function services()
     {
-        return $this->belongsToMany(Service::class, 'service_tag_relations');
+        return $this->belongsToMany(Service::class, 'service_tag_relations', 'tag_id', 'service_id');
     }
 }

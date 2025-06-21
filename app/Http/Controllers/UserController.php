@@ -27,12 +27,14 @@ class UserController extends Controller
             'role' => 'required|in:employer,worker,admin',
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'role' => $request->role,
         ]);
+
+        $user->profile()->create([]);
     
         return redirect()->route('users.index')->with('success', 'User created successfully');
     }
@@ -65,6 +67,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+        $user->profile()->delete();
         return redirect()->route('users.index')->with('success', 'User deleted successfully');
     }
 }

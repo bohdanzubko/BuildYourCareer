@@ -18,6 +18,7 @@ class JobOffer extends Model
         'user_id',
         'job_id',
         'offer_price',
+        'status',
     ];
 
     /**

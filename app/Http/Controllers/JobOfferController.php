@@ -16,10 +16,7 @@ class JobOfferController extends Controller
      */
     public function index()
     {
-        // Retrieve all job offers
         $jobOffers = JobOffer::all();
-
-        // Return the job offers list view
         return view('admin.job_offers.index', compact('jobOffers'));
     }
 
@@ -30,10 +27,8 @@ class JobOfferController extends Controller
      */
     public function create()
     {
-        // Retrieve available jobs and users for the dropdowns
         $jobs = Job::all();
         $users = User::all();
-
         return view('admin.job_offers.create', compact('jobs', 'users'));
     }
 
@@ -45,17 +40,15 @@ class JobOfferController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate the incoming request
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'job_id' => 'required|exists:jobs,id',
             'offer_price' => 'required|string|max:255',
+            'status' => 'required|in:pending,approved,declined',
         ]);
 
-        // Create the job offer in the database
-        JobOffer::create($request->only(['user_id', 'job_id', 'offer_price']));
+        JobOffer::create($request->only(['user_id', 'job_id', 'offer_price', 'status']));
 
-        // Redirect back to the job offers list with a success message
         return redirect()->route('job_offers.index')->with('success', 'Job offer created successfully!');
     }
 
@@ -67,10 +60,8 @@ class JobOfferController extends Controller
      */
     public function edit(JobOffer $jobOffer)
     {
-        // Retrieve available jobs and users for the dropdowns
         $jobs = Job::all();
         $users = User::all();
-
         return view('admin.job_offers.edit', compact('jobOffer', 'jobs', 'users'));
     }
 
@@ -83,17 +74,15 @@ class JobOfferController extends Controller
      */
     public function update(Request $request, JobOffer $jobOffer)
     {
-        // Validate the incoming request
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'job_id' => 'required|exists:jobs,id',
             'offer_price' => 'required|string|max:255',
+            'status' => 'required|in:pending,approved,declined',
         ]);
 
-        // Update the job offer
-        $jobOffer->update($request->only(['user_id', 'job_id', 'offer_price']));
+        $jobOffer->update($request->only(['user_id', 'job_id', 'offer_price', 'status']));
 
-        // Redirect back to the job offers list with a success message
         return redirect()->route('job_offers.index')->with('success', 'Job offer updated successfully!');
     }
 
@@ -105,10 +94,7 @@ class JobOfferController extends Controller
      */
     public function destroy(JobOffer $jobOffer)
     {
-        // Delete the job offer
         $jobOffer->delete();
-
-        // Redirect back to the job offers list with a success message
         return redirect()->route('job_offers.index')->with('success', 'Job offer deleted successfully!');
     }
 }

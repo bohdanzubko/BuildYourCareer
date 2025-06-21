@@ -29,15 +29,15 @@ class ServiceRequestController extends Controller
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'service_id' => 'required|exists:services,id',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
             'area' => 'required|numeric|min:0',
-            'estimated_price' => 'required|numeric|min:0',
+            'estimated_price' => 'nullable|numeric|min:0',
             'status' => 'required|in:pending,in_progress,completed',
         ]);
 
         ServiceRequest::create($request->all());
 
-        return redirect()->route('service-requests.index')->with('success', 'Service request created successfully');
+        return redirect()->back()->with('success', 'Service request created successfully');
     }
 
     public function edit(ServiceRequest $serviceRequest)
@@ -54,9 +54,9 @@ class ServiceRequestController extends Controller
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'service_id' => 'required|exists:services,id',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
             'area' => 'required|numeric|min:0',
-            'estimated_price' => 'required|numeric|min:0',
+            'estimated_price' => 'nullable|numeric|min:0',
             'status' => 'required|in:pending,in_progress,completed',
         ]);
 
